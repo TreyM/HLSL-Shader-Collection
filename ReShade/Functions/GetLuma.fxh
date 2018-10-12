@@ -47,5 +47,5 @@
 //  color.rgb = GetLuma(color.rgb, UIInteger);  //
 //                                              //
 //  In the example above, UIInteger would be    //
-//  a user adjustable integer value from 0 - 4  //
+//  a user adjustable integer value from 0 - 3  //
 //////////////////////////////////////////////////
