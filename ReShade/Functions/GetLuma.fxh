@@ -23,7 +23,7 @@
         static const float3 LumaCoeff[4] =
         {
             // 0: HD TV - Rec.709
-            float3(0.2126, 0.7152f, 0.0722),
+            float3(0.2126, 0.7152, 0.0722),
             // 1: HD TV - Rec.709-5
             float3(0.212395, 0.701049, 0.086556),
             // 2: CRT TV - Rec.601
