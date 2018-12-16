@@ -53,5 +53,5 @@ float GetLuma(in float3 color, int btspec)
 //  color.rgb = GetLuma(color.rgb, UIInteger);  //
 //                                              //
 //  In the example above, UIInteger would be    //
-//  a user adjustable integer value from 0 - 3  //
+//  a user adjustable integer value from 0 - 4  //
 //////////////////////////////////////////////////
