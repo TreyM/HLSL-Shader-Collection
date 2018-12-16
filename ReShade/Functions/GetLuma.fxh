@@ -11,29 +11,35 @@
 // CreativeCommons.org/licenses/by-nc-sa/4.0/     //
 ////////////////////////////////////////////////////
 
+//////////////////////////////////////////////////
 // LUMA COEFFICIENTS /////////////////////////////
-    #define Rec709      0
-    #define Rec709_5    1
-    #define Rec601      2
-    #define Lum333      3
+#define Rec709      0
+#define Rec709_5    1
+#define Rec601      2
+#define Rec2020     3
+#define Lum333      4
 
+//////////////////////////////////////////////////
 // FUNCTION //////////////////////////////////////
-    float GetLuma(in float3 color, int btspec)
+// Calculate perceived luminance color by using the ITU-R BT standards
+float GetLuma(in float3 color, int btspec)
+{
+    static const float3 LumaCoeff[5] =
     {
-        static const float3 LumaCoeff[4] =
-        {
-            // 0: HD TV - Rec.709
-            float3(0.2126, 0.7152, 0.0722),
-            // 1: HD TV - Rec.709-5
-            float3(0.212395, 0.701049, 0.086556),
-            // 2: CRT TV - Rec.601
-            float3(0.299, 0.587, 0.114),
-            // 3: Incorrect Equal Weighting
-            float3(0.3333, 0.3333, 0.3333)
-        };
-
-        return dot(color.rgb, LumaCoeff[btspec]);
+        // 0: HD TV - Rec.709
+        float3(0.2126, 0.7152f, 0.0722),
+        // 1: HD TV - Rec.709-5
+        float3(0.212395, 0.701049, 0.086556),
+        // 2: CRT TV - Rec.601
+        float3(0.299, 0.587, 0.114),
+        // 3: HDR Spec - Rec.2020
+        float3(0.2627, 0.6780, 0.0593),
+        // 4: Incorrect Equal Weighting
+        float3(0.3333, 0.3333, 0.3333)
     };
+
+    return dot(color.rgb, LumaCoeff[btspec]);
+}
 
 //////////////////////////////////////////////////
 //  Function Call:                              //
